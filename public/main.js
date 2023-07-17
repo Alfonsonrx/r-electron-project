@@ -16,11 +16,11 @@ function createWindow() {
       preload: path.join(__dirname, 'preload.js')
     }
   })
-  
+
   win.loadURL(
     isDev
       ? 'http://localhost:3000'
-      : `file://${path.join(__dirname, '../build/index.html')}`
+      : 'file:///' + (path.join(__dirname, '../build/index.html#/')).replace(/\\/g, '/')
   )
 }
 
@@ -53,6 +53,6 @@ ipcMain.on('notify', (_, message) => {
   win.loadURL(
     isDev
       ? 'http://localhost:3000/settings'
-      : `file://${path.join(__dirname, '../build/index.html#settings')}`
+      : 'file:///' + (path.join(__dirname, '../build/index.html#/settings')).replace(/\\/g, '/')
   )
 })

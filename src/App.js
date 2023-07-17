@@ -2,7 +2,7 @@ import { HashRouter, BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from './pages/Home';
 import Settings from './pages/Settings';
 
-function App() {
+const App = () => {
   if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
     return (
       <BrowserRouter basename={'/'}>
@@ -16,7 +16,7 @@ function App() {
       <HashRouter basename={'/'}>
         <Routes>
           <Route exact path="/" element={<Home/>} />
-          <Route exact path="/settings" element={<Settings/>} />
+          <Route path="/settings" element={<Settings/>} />
         </Routes>
       </HashRouter>)
   }
